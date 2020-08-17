@@ -6,6 +6,8 @@ from datetime import datetime
 
 
 def do_pack():
+    '''do pack module'''
+
     file_name = "web_static_" + \
         datetime.now().strftime("%Y%m%d%H%M%S") + ".tgz"
     save_dir = "versions/"
