@@ -21,6 +21,5 @@ def states_list():
     return render_template('7-states_list.html', states=states)
 
 
-
 if __name__ == '__main__':
     app.run("0.0.0.0", 5000)
