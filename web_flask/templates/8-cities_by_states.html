@@ -1,23 +1,25 @@
-  <!DOCTYPE html>
-  <HTML lang="en">
+<!DOCTYPE html>
+<HTML lang="en">
 
-  	<HEAD>
-  		<TITLE>HBNB</TITLE>
-  	</HEAD>
+	<HEAD>
+		<TITLE>HBNB</TITLE>
+	</HEAD>
 
-  	<BODY>
-  		<H1>States</H1>
-  		<UL>
-  			{% for state in states | sort(attribute='name') %}
-  			<LI>{{ state.id }}: <B>{{ state.name }}</B>
+	<BODY>
+		<H1>States</H1>
+		<UL>
+			{% for st in states.values() | sort(attribute='name') %}
+			<LI>{{ st.id }}: <B>{{ st.name }}</B>
 				<UL>
-					{% for city in state.cities | sort(attribute='name') %}
-						<LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
-					{% endfor %}
+					{% for ct in cities.values() | sort(attribute='name') -%}
+					{% if ct.state_id == st.id %}
+					<LI>{{ ct.id }}: <B>{{ ct.name }}</B></LI>
+					{% endif %}
+					{%- endfor %}
 				</UL>
-  			</LI>
-  			{% endfor %}
-  		</UL>
-  	</BODY>
+			</LI>
+			{% endfor %}
+		</UL>
+	</BODY>
 
-  </HTML>
+</HTML>
